@@ -23,8 +23,8 @@
       "handle": "filesystem"
     },
     {
-      "src": "/.*",
-      "dest": "apps/testCalendarFront/dist/index.html"
+      "src": "/(.*)",
+      "dest": "apps/testCalendarFront/index.html"
     }
   ]
 }
