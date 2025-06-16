@@ -5,8 +5,7 @@
       "src": "apps/testCalendarFront/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "outputDirectory": "apps/testCalendarFront/dist",
-        "buildCommand": "npm run build"
+        "outputDirectory": "dist"
       }
     },
     {
@@ -20,12 +19,8 @@
       "dest": "apps/testCalendarBack/index.ts"
     },
     {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "dest": "/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "apps/testCalendarFront/dist/$1"
     }
   ]
 }
