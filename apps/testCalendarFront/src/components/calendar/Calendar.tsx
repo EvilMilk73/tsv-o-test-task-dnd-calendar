@@ -112,6 +112,8 @@ export default function FlexCalendar() {
 
   const [tasks, setTasks] = useState<Record<string, Task[]>>({});
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   const [currentMonthHoliday, setCurrentMonthHoliday] = useState<Record<
     string,
     Holiday[]
@@ -295,6 +297,20 @@ export default function FlexCalendar() {
     if (!activeTask) postTasks(tasks, currentYear, currentMonthIndex);
   }, [tasks, currentYear, currentMonthIndex, activeTask]);
 
+  const getFilteredTasks = (date: Date) => {
+    const tasksByDay = tasks[getShortDateString(date)];
+
+    if (!tasksByDay) return [];
+
+    if (searchQuery === "") {
+      return tasksByDay;
+    } else {
+      return tasksByDay.filter((task) =>
+        task.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+  };
+
   return (
     <>
       <DndContext
@@ -310,6 +326,7 @@ export default function FlexCalendar() {
             handlePrev={handlePrev}
             currentMonthIndex={currentMonthIndex}
             currentYear={currentYear}
+            setSearchQuery={setSearchQuery}
           ></ControlsHeaderRow>
           <WeekDayHeaderRow>
             {daysOfWeek.map((day) => (
@@ -332,7 +349,7 @@ export default function FlexCalendar() {
                     addNewTaskToDay={addNewTaskToDay}
                     key={getShortDateString(day)}
                     date={day}
-                    tasks={tasks[getShortDateString(day)] ?? []}
+                    tasks={getFilteredTasks(day)}
                     holidays={
                       currentMonthHoliday
                         ? currentMonthHoliday[getShortDateString(day)] ?? []
