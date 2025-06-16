@@ -24,7 +24,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/apps/testCalendarFront/$1"
+      "dest": "apps/testCalendarFront/$1"
     }
   ]
 }
