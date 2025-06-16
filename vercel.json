@@ -18,6 +18,13 @@
     {
       "src": "/api/(.*)",
       "dest": "apps/testCalendarBack/index.ts"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "apps/testCalendarFront/dist/index.html"
     }
   ]
 }
