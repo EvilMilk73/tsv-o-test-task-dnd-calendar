@@ -1,0 +1,6 @@
+{
+  "name": "test-calendar-monorepo",
+  "scripts": {
+    "build": "cd apps/testCalendarFront && npm install && npm run build"
+  }
+}
