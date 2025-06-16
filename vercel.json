@@ -2,11 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "apps/testCalendarFront/vite.config.ts",
+      "src": "apps/testCalendarFront/package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "buildCommand": "cd apps/testCalendarFront && npm install && npm run build"
+        "buildCommand": "npm run build"
       }
     },
     {
