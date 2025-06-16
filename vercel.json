@@ -1,9 +1,10 @@
 {
   "version": 2,
+  "buildCommand": "cd apps/testCalendarFront && npm run build",
   "outputDirectory": "apps/testCalendarFront/dist",
   "functions": {
     "apps/testCalendarBack/index.ts": {
-      "runtime": "@vercel/node"
+      "runtime": "@vercel/node@3.2.37"
     }
   },
   "routes": [
