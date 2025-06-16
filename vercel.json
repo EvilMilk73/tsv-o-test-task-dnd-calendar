@@ -5,7 +5,7 @@
       "src": "apps/testCalendarFront/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "outputDirectory": "dist"
+        "outputDirectory": "apps/testCalendarFront/dist"
       }
     },
     {
@@ -20,7 +20,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "apps/testCalendarFront/dist/$1"
+      "dest": "/index.html"
     }
   ]
 }
