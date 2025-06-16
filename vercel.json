@@ -3,7 +3,11 @@
   "builds": [
     {
       "src": "apps/testCalendarFront/package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "npm run build"
+      }
     },
     {
       "src": "apps/testCalendarBack/index.ts",
@@ -17,7 +21,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "apps/testCalendarFront/dist/$1"
+      "dest": "apps/testCalendarFront/index.html"
     }
   ]
 }
