@@ -1,16 +1,23 @@
 {
   "version": 2,
-  "buildCommand": "cd apps/testCalendarFront && npm run build",
-  "outputDirectory": "apps/testCalendarFront/dist",
-  "functions": {
-    "apps/testCalendarBack/index.ts": {
-      "runtime": "@vercel/node@3.2.37"
+  "builds": [
+    {
+      "src": "apps/testCalendarFront/package.json",
+      "use": "@vercel/static-build"
+    },
+    {
+      "src": "apps/testCalendarBack/index.ts",
+      "use": "@vercel/node"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "apps/testCalendarBack/index.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "apps/testCalendarFront/dist/$1"
     }
   ]
 }
