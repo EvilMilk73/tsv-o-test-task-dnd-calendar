@@ -5,7 +5,8 @@
       "src": "apps/testCalendarFront/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "dist",
+        "buildCommand": "npm run build"
       }
     },
     {
@@ -23,7 +24,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/apps/frontend/$1"
+      "dest": "/apps/testCalendarFront/$1"
     }
   ]
 }
