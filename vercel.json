@@ -2,23 +2,26 @@
   "version": 2,
   "builds": [
     {
-      "src": "apps/web/vite.config.ts",
+      "src": "apps/testCalendarFront/vite.config.ts",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "cd apps/testCalendarFront && npm install && npm run build"
+      }
     },
     {
-      "src": "apps/api/index.ts",
+      "src": "apps/testCalendarBack/index.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "apps/api/index.ts"
+      "dest": "apps/testCalendarBack/index.ts"
     },
     {
       "src": "/(.*)",
-      "dest": "apps/web/index.html"
+      "dest": "apps/testCalendarFront/index.html"
     }
   ]
 }
